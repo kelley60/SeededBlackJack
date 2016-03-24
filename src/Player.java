@@ -75,7 +75,7 @@ public class Player {
 		
 		playerHand.add(card);
 		
-		if (handValue() > 21){
+		if (handValue() >= 21){
 			setHasBusted(true);
 		}	
 	}
