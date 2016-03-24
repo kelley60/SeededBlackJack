@@ -480,7 +480,7 @@ public class Engine {
 
 		//Dealer wins if everyone busts
 		if(allBust){
-			winners.add(dealer);
+			//winners.add(dealer);
 			return;
 		}
 
