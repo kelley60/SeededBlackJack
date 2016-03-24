@@ -332,7 +332,7 @@ public class Engine {
 			int total = cpu.handValue();
 
 			int cardOne = cpu.getHand().get(0).getValue();
-			int cardTwo = cpu.getHand().get(1).getValue();
+			int cardTwo = cpu.getHand().get(0).getValue();
 			int action = 0;
 			//System.out.println("CPU " + cpu.getID() + " HAND VALUE: " + total);
 
@@ -371,7 +371,7 @@ public class Engine {
 			}
 			else if (handSizeOfTwo && (cpu.getHand().get(0).value == cpu.getHand().get(1).value)) {
 				//SPLIT
-				System.out.println("SPLITTING");
+				
 			}
 			else {
 				action = LookupTables.hardTotals[total-5][humanHandValue];
