@@ -87,7 +87,7 @@ public class Engine {
 		
 		int payout = 0;
 		if(winners.size() > 0)
-			payout = (int)(chipPot / winners.size());
+			payout = (int)(chipPot / (winners.size() + 3));
 		for(Player player : winners){
 			player.setNumChips(player.getNumChips() + payout);
 			System.out.println("Player " + player.getDisplayName() + " has won " + payout + " chips!");
@@ -715,9 +715,9 @@ public class Engine {
 			betStr = betStr.replace("\n", "");
 			try{      
 				bet = Integer.parseInt(betStr);
-				//if(bet >= human.getNumChips()){
-				//	System.out.println("Error: You cannot bet more chips than you currently have.");
-				//}else 
+				if(bet == human.getNumChips()){
+					System.out.println("Error: You cannot bet more chips than you currently have.");
+				}else 
 				if(bet < 0){
 					System.out.println("Error: You must place a bet between 1 and " + human.getNumChips() + " chips.");
 				}else{
