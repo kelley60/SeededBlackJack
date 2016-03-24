@@ -715,9 +715,10 @@ public class Engine {
 			betStr = betStr.replace("\n", "");
 			try{      
 				bet = Integer.parseInt(betStr);
-				if(bet >= human.getNumChips()){
-					System.out.println("Error: You cannot bet more chips than you currently have.");
-				}else if(bet < 0){
+				//if(bet >= human.getNumChips()){
+				//	System.out.println("Error: You cannot bet more chips than you currently have.");
+				//}else 
+				if(bet < 0){
 					System.out.println("Error: You must place a bet between 1 and " + human.getNumChips() + " chips.");
 				}else{
 					valid = true;
