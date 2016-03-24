@@ -748,10 +748,10 @@ public class Engine {
 	}
 
 	public static void resetGame() {
-		human.clearHand();
+		//human.clearHand();
 		for(Player cpu : computers)
 			cpu = null;
-		chipPot = 0;
+		//chipPot = 0;
 		winners = new ArrayList<Player>();
 	}
 
