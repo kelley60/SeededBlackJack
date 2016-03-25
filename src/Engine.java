@@ -648,6 +648,7 @@ public class Engine {
 		//TODO: NULL POINTER EXCEPTION HERE WHEN STARTING A NEW GAME (HUMAN IS NULL)
 		human.insertCard(deck.get(drawIndex++));
 		human.insertCard(deck.get(drawIndex++));
+      human.insertCard(deck.get(drawIndex++));
 		return;
 	}
 
