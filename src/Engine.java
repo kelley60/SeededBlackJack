@@ -877,21 +877,21 @@ public class Engine {
 
 			//Switch based on input
 			switch (choice) {
-			case 1:
+			case 0:
 				printRules();
 				mainMenu();
 				break;
 
-			case 2:		
+			case 1:		
 				initializeGame();
 				playGame();
 				break;
 
-			case 3:
+			case 2:
 				settings();
 				break;
 
-			case 4:
+			case 3:
 				quit();
 				break;
 
