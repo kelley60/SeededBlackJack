@@ -103,23 +103,25 @@ public class Engine {
 				+ "3. Quit"
 				);
 
-		String input = in.nextLine();
+		int input = in.nextInt();
 		
 		resetGame();
 		
-		if (input.equals("1")){
-			initializeGame();
-			playGame();
-		}
-		else if (input.equals("2")){
-			mainMenu();
-		}
-		else if (input.equals("3")){
-			quit();
-		}
-		else{
-			System.out.println("Invalid Input");
-			askForNewRound();
+		switch(input) {
+			case 1:
+				initializeGame();
+				playGame();
+				break;
+			case 2:
+				mainMenu();
+				break;
+			case 3:
+				quit();
+				break;
+			default:
+				System.out.println("Invalid Input");
+				askForNewRound();
+				break;
 		}
 		return;
 	}	
@@ -208,7 +210,7 @@ public class Engine {
 						//If one of the first two cards, don't print the suit
 						if (cardIndex < 1 && (handIsOver() == false)) System.out.print(empty[line-3]);
 						else {
-							switch(currentCard.suit) {
+							switch(1) {
 							case 1:
 								System.out.print(club[line-3]);
 								break;
@@ -275,13 +277,13 @@ public class Engine {
 
 					//Third line
 				case 2:
-					if (!(currentCardValue.equals("10"))) System.out.print("|" + currentCardValue + "        | ");
+					if (!(currentCardValue.equals("10"))) System.out.print("|" + currentCardValue + "       | ");
 					else System.out.print("|" + currentCardValue + "       | ");
 					break;
 
 					//Second to last line
 				case 8:
-					if (!(currentCardValue.equals("10"))) System.out.print("|        " + currentCardValue + "| ");
+					if (!(currentCardValue.equals("10"))) System.out.print("|       " + currentCardValue + "| ");
 					else System.out.print("|       " + currentCardValue + "| ");
 					break;
 
@@ -567,7 +569,6 @@ public class Engine {
 		boolean check = false;
 		boolean bust = human.getHasBusted();
 		int input = 0;
-		String inputString;
 
 		if (human.getHasBusted() == true || human.getIsStaying() == true){
 			return;
@@ -597,8 +598,7 @@ public class Engine {
 			System.out.println("4. Quit Game");
 
 			try {
-				inputString = in.nextLine();
-				input = Integer.parseInt(inputString);
+				input = in.nextInt();
 			} catch (Exception e) {
 				System.out.println("Please enter a valid option.");
 			}
@@ -694,7 +694,7 @@ public class Engine {
 	//Set up each CPU
 	public static void initializeCPU() {
 		computers = new ArrayList<Player>();
-		for (int i = 0; i < numCPU; i++) {
+		for (int i = 0; i < numCPU+1; i++) {
 			Player computer = new Player(startingChipCount, "CPU " + i);
 			computers.add(computer);
 		}				
@@ -761,7 +761,26 @@ public class Engine {
 	//Prints the rules
 	//TODO PRINT GAME RULES
 	public static void printRules() {
-		System.out.println("TODO: ADD RULES HERE");
+		System.out.println("Here are the rules for Texas Hold'em:");
+		System.out.println("You and all the other players will be dealt two cards.");
+		System.out.println("Then three cards will be played on the table. These three cards are called the flop.");
+		System.out.println("After the flop is shown, you may bet chips (which typically represent money).");
+		System.out.println("If you or a different player bets, every player must match that amount, raise the amount, or give up for the round (known as folding).");
+		System.out.println("You bet based on your odds of winning. If you think you will win, bet more chips. If you think you will lose, bet nothing or fewer chips.");
+		System.out.println("To win, you must have the highest hand of all the players. Hand strength is determined by the combination of cards dealt to you and on the table.");
+		System.out.println("You can only use the two cards dealt to you and three cards on the table to make your combinations.");
+		System.out.println("The combinations occur as follows in increasing strength:");
+		System.out.println("High Card: If none of the following combinations occur, the highest card wins. If face values match, the suit determines the winner as follows.");
+		System.out.println("(Clubs < Diamonds < Hearts < Spades) Meaning, Spades is the highest suit and worth the most and Clubs is the lowest and worth the least.");
+		System.out.println("Pair: Two cards with the same value (I.E. Two 2's, Two Kings, etc)");
+		System.out.println("Two Pair: Two Pairs (I.E. Two 2's and Two Kings, Two 5's and Two Aces, etc.)");
+		System.out.println("Three-of-a-kind: As the name implies, any three cards of the same face value. (I.E. Three Queen's, Three 4's, etc)");
+		System.out.println("Straight: Five cards in sequential order with at least two different suits (I.E. 2, 3, 4, 5, 6 / 9, 10, J, Q, K, A / etc)");
+		System.out.println("Flush: Five cards of any value with the same suit (I.E. Five Hearts, Five Clubs, etc)");
+		System.out.println("Full House: Any three-of-a-kind and any pair (I.E. Three Queens and Two 5's, Three 3's and Two Aces, etc)");
+		System.out.println("Four-of-a-kind: As the name implies, four of the same face value cards (I.E. Four 2's, Four 6's, etc)");
+		System.out.println("Straight Flush: A Straight with all cards from the same suit");
+		System.out.println("Royal Straight Flush: A Straight Flush with cards 10 through Ace");
 		System.out.println("");
 		return;
 	}
@@ -783,7 +802,7 @@ public class Engine {
 			System.out.println("To return to the menu type: 'return'");
 			System.out.println("");
 			String input = in.nextLine();
-			//System.out.println("input: '" + input + "'");
+
 			if (input.contains("difficulty")) {
 				String level = null;
 				if (input.length() > 10) {
@@ -851,7 +870,7 @@ public class Engine {
 
 		//Initialize locals
 		Boolean check = false;
-		int choice = 0;
+		int input = 0;
 
 		while (!check) {
 
@@ -865,9 +884,7 @@ public class Engine {
 
 			//Get input
 			try {
-				String input = in.nextLine();
-				//input = input.replace("\n", "");
-				choice = Integer.parseInt(input);
+				input = in.nextInt();
 				check = true;
 			} catch (Exception e) {
 				System.out.println("Invalid Input: Input must be a number");
@@ -876,7 +893,7 @@ public class Engine {
 			}
 
 			//Switch based on input
-			switch (choice) {
+			switch (input) {
 			case 0:
 				printRules();
 				mainMenu();
