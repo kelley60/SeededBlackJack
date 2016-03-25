@@ -75,7 +75,7 @@ public class Engine {
 			printBoard();
 		}
 
-		//printBoard();
+		printBoard();
 		determineWinners();
 		splitWinnings();
 
