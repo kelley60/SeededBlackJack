@@ -396,6 +396,7 @@ public class Engine {
 				//System.out.println("HIT");
 				card = deck.get(drawIndex++);
 				cpu.hit(card);
+            cpu.hit(card);
 				cpu.setLastAction("hit");
 
 				break;
