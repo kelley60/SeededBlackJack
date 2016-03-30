@@ -109,8 +109,9 @@ public class Engine {
   
   switch(input) {
    case 1:
-    initializeGame();
-    playGame();
+    //initializeGame();
+    //playGame();
+	   quit();
     break;
    case 2:
     mainMenu();
@@ -654,9 +655,8 @@ public class Engine {
 
  //Shuffles the deck
  public static void shuffle() {
-  //long seed = System.nanoTime();
-  ///Collections.shuffle(deck, new Random(seed)); BUG #4
-   Collections.shuffle(deck,new Random(70));
+  long seed = System.nanoTime();
+  Collections.shuffle(deck, new Random(seed));
   return;
  }
 
@@ -760,15 +760,14 @@ public class Engine {
  }
 
  //Prints the rules
- //TODO PRINT GAME RULES
  public static void printRules() {
-  System.out.println("Start the game with two cards. Numbered cards are worth their face value, and face cards"
-    + "are worth 10. Aces can be either worth 1 or 11. You may choose to add a hand to your card (hit),"
-    + "or you can choose to stay with your current hand. If your hand total equals above 21, you lose the"
-    + "hand. The player(s) with the highest total that hasn't busted at the end of the round win(s) the pot."
-    + "The pot is equal to the amount you and other players bet at the beginning of the round. If everyone busts"
-    + " the dealer wins. ");
-  System.out.println("");
+	 
+  System.out.println("The beginning When playing Texas HoldEm poker, every player"
+  		+ " is dealt two cards face down – these are called your hole cards. Then there is "
+  		+ "a round of betting where you can Check, Bet or Fold. This stage of the game is known as pre-flop "
+  		+ "and what you should do is dependent on those hole cards, or starting hand."
+  		+ "When all the betting has finished three shared cards are dealt face up in the middle of the table. "
+  		+ "This is called the flop.");
   return;
  }
 
